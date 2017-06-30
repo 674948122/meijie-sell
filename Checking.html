@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>手机验证</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="css/Checking.css">
+	<link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+	<!-- 内容 -->
+	<div class="login">
+		<div class="lo_left">
+			<dl class="we">
+				<dt>美街</dt>
+				<dd>
+					<img src="images/sun_02.png" alt="">
+				</dd>
+			</dl>
+		</div>
+		<div class="lo_right">
+			<ul>
+				<li>
+					<h2>验证身份</h2>
+				</li>
+				<li class="num">
+					<span>手机号码：</span>
+					<span>13674729551</span>
+				</li>
+				<li class="checking">
+					<input id="captcha" class="captcha" name="password" type="text" placeholder="验证码" autocomplete="off" maxlength="4">
+                    <input id="send-captcha" class="btn send-captcha" type="button" value="8秒后可重新操作">
+                    <p class="prompt">验证码已发送至您的手机请注意查收</p>
+				</li>
+				<li>
+					<a href="ResetPassword.html" class='login_in'>下一步</a>
+				</li>
+				<li class="quick">
+                	我已注册美街!
+                	<a class="quick_login" href="Login.html">快速登录</a>
+                </li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+	var n=60;
+	var timer=setInterval(function (){
+		n--;
+		$('#send-captcha').attr('value',n+'秒后可重新操作');
+		if (n<=1){
+			$('#send-captcha').removeClass('send-captcha');
+			clearInterval(timer);
+			$('#send-captcha').attr('value','重新发送');
+		};
+	},1000);
+</script>
+</html>
